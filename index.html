@@ -1,115 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Get Creative Now - Premium Access</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
-      font-family: Arial, sans-serif;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    .container {
-      max-width: 800px;
-      background: rgba(255,255,255,0.05);
-      border: 2px solid #00f3ff;
-      border-radius: 20px;
-      padding: 50px;
-      text-align: center;
-      box-shadow: 0 20px 60px rgba(0,243,255,0.3);
-    }
-    h1 {
-      font-size: 3em;
-      background: linear-gradient(45deg, #00f3ff, #ff007f);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 30px;
-    }
-    p {
-      font-size: 1.3em;
-      margin-bottom: 40px;
-      color: rgba(255,255,255,0.9);
-    }
-    .price {
-      font-size: 4em;
-      color: #ffd700;
-      font-weight: 900;
-      margin: 30px 0;
-    }
-    .btn {
-      display: inline-block;
-      padding: 25px 60px;
-      background: linear-gradient(45deg, #ffd700, #fff);
-      color: #000;
-      text-decoration: none;
-      font-size: 1.8em;
-      font-weight: 900;
-      border-radius: 50px;
-      margin: 20px;
-      transition: all 0.3s;
-      box-shadow: 0 10px 30px rgba(255,215,0,0.5);
-    }
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 50px rgba(255,215,0,0.8);
-    }
-    .btn.monthly {
-      background: linear-gradient(45deg, #ff007f, #ff4500);
-      color: #fff;
-    }
-    .features {
-      text-align: left;
-      margin: 40px 0;
-      padding: 30px;
-      background: rgba(0,0,0,0.3);
-      border-radius: 10px;
-    }
-    .features li {
-      font-size: 1.2em;
-      margin: 15px 0;
-      list-style: none;
-    }
-    .features li:before {
-      content: "✅ ";
-      margin-right: 10px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GET CREATIVE NOW — Premium Tools & Digital Products</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #05060f;
+    --card: #0d1024;
+    --accent: #7c3aed;
+    --accent2: #06b6d4;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+  }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  .hero {
+    position: relative;
+    text-align: center;
+    padding: 80px 20px 60px;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(124,58,237,0.35), transparent 50%),
+      radial-gradient(ellipse at 80% 30%, rgba(6,182,212,0.3), transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(236,72,153,0.25), transparent 50%);
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #a78bfa, #06b6d4, #f472b6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  .section h2 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #a78bfa, #06b6d4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .section .sub {
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid rgba(124,58,237,0.25);
+    border-radius: 16px;
+    padding: 28px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent2);
+    box-shadow: 0 12px 40px rgba(6,182,212,0.2);
+  }
+  .card .tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(124,58,237,0.2);
+    color: #a78bfa;
+    width: fit-content;
+  }
+  .card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex: 1;
+  }
+  .btn {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 20px;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary {
+    background: linear-gradient(135deg, #7c3aed, #06b6d4);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+  }
+  .btn-shark {
+    background: linear-gradient(135deg, #0ea5e9, #1e40af);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(14,165,233,0.4);
+  }
+  .shark-section {
+    background: linear-gradient(135deg, rgba(14,165,233,0.12), rgba(30,64,175,0.12));
+    border-radius: 24px;
+    padding: 40px;
+    margin-top: 20px;
+  }
+  .shark-section .shark-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .shark-card {
+    background: rgba(13,16,36,0.8);
+    border: 1px solid rgba(14,165,233,0.3);
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .shark-card h3 { font-size: 1.2rem; }
+  .shark-card p { color: var(--muted); font-size: 0.9rem; flex: 1; }
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(124,58,237,0.2);
+    margin-top: 40px;
+  }
+  @media (max-width: 600px) {
+    .section { padding: 24px 16px; }
+    .shark-section { padding: 24px 16px; }
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>🚀 GET CREATIVE NOW</h1>
-    <p>Unlock 28+ Premium AI Tools & Bots</p>
-    
-    <div class="price">$10</div>
-    <p style="font-size:1.1em; color:#ffd700;">One-Time Payment</p>
-    
-    <a href="https://www.paypal.com/ncp/payment/JETGRAUSS22AS" class="btn" target="_blank">
-      🔥 GET INSTANT ACCESS
-    </a>
-    
-    <div class="features">
-      <li>28+ Premium AI Tools</li>
-      <li>5 Custom Monica Bots</li>
-      <li>Lifetime Access</li>
-      <li>Priority Support</li>
-      <li>Instant Activation</li>
-    </div>
-    
-    <p style="margin-top:40px;">Or subscribe monthly:</p>
-    <a href="https://www.paypal.com/ncp/payment/DCFGC5QQVL6MQ" class="btn monthly" target="_blank">
-      💎 $15/MONTH
-    </a>
-    
-    <p style="margin-top:50px; font-size:0.9em; color:rgba(255,255,255,0.5);">
-      Contact: <a href="mailto:g.donarock@gmail.com" style="color:#00f3ff;">g.donarock@gmail.com</a>
-    </p>
+
+  <div class="hero">
+    <h1>GET CREATIVE NOW</h1>
+    <p>Premium digital tools, lifetime ownership, and the privacy you deserve — all in one place.</p>
   </div>
+
+  <div class="section">
+    <h2>🛍️ Premium Digital Products</h2>
+    <p class="sub">Lifetime ownership. Pay once, keep forever.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="tag">Command Center</span>
+        <h3>SuperNova Command Center</h3>
+        <p>Your all-in-one command hub for productivity, automation, and creative control.</p>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/lhqrd" target="_blank">Get Lifetime Access</a>
+      </div>
+      <div class="card">
+        <span class="tag">Tool Suite</span>
+        <h3>JOHNSTOOLS Suite</h3>
+        <p>A powerful collection of tools designed to streamline your workflow and boost output.</p>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/racltk" target="_blank">Get Lifetime Access</a>
+      </div>
+      <div class="card">
+        <span class="tag">Bundle</span>
+        <h3>10-Tool Bundle</h3>
+        <p>Ten essential creative tools bundled together for maximum value and efficiency.</p>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/rdljid" target="_blank">Get Lifetime Access</a>
+      </div>
+      <div class="card">
+        <span class="tag">Exclusive</span>
+        <h3>Direct Line to Source</h3>
+        <p>Unlock direct access to the source — premium insights and resources, straight to you.</p>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/jomhn" target="_blank">Get Lifetime Access</a>
+      </div>
+      <div class="card">
+        <span class="tag">Pet Care</span>
+        <h3>Premium Pet Food Topper</h3>
+        <p>Give your furry friend the nutrition they deserve with this premium food topper.</p>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/ympord" target="_blank">Get Lifetime Access</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="shark-section">
+      <h2>🦈 Surfshark — Privacy & Security</h2>
+      <p class="sub">Protect your devices with industry-leading VPN, antivirus, and ad blocking.</p>
+      <div class="shark-grid">
+        <div class="shark-card">
+          <h3>Surfshark VPN</h3>
+          <p>Fast, secure, and unlimited VPN for all your devices. Browse privately anywhere.</p>
+          <a class="btn btn-shark" href="https://get.surfshark.net/aff_c?offer_id=926&aff_id=43730" target="_blank">Get Surfshark VPN</a>
+        </div>
+        <div class="shark-card">
+          <h3>Surfshark Antivirus</h3>
+          <p>Real-time protection against malware, viruses, and online threats.</p>
+          <a class="btn btn-shark" href="https://get.surfshark.net/aff_c?offer_id=934&aff_id=43730" target="_blank">Get Antivirus</a>
+        </div>
+        <div class="shark-card">
+          <h3>Surfshark Adblock</h3>
+          <p>Block ads, trackers, and pop-ups for a cleaner, faster browsing experience.</p>
+          <a class="btn btn-shark" href="https://get.surfshark.net/aff_c?offer_id=1498&aff_id=43730" target="_blank">Get Adblock</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 GET CREATIVE NOW. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
