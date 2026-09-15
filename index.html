@@ -1,209 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GET CREATIVE NOW — Premium Tools & Digital Products</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --bg: #05060f;
-    --card: #0d1024;
-    --accent: #7c3aed;
-    --accent2: #06b6d4;
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-  }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-    perspective: 1400px;
-  }
-  .aurora {
-    position: fixed;
-    inset: -20%;
-    z-index: -2;
-    background:
-      radial-gradient(circle at 20% 30%, rgba(124,58,237,0.35), transparent 45%),
-      radial-gradient(circle at 80% 20%, rgba(6,182,212,0.30), transparent 45%),
-      radial-gradient(circle at 50% 80%, rgba(236,72,153,0.25), transparent 45%);
-    filter: blur(60px);
-    animation: drift 18s ease-in-out infinite alternate;
-  }
-  @keyframes drift {
-    0%   { transform: translate3d(-3%, -2%, 0) scale(1); }
-    50%  { transform: translate3d(3%, 2%, 0) scale(1.08); }
-    100% { transform: translate3d(-2%, 3%, 0) scale(1.04); }
-  }
-  .hero {
-    position: relative;
-    text-align: center;
-    padding: 110px 20px 70px;
-    transform-style: preserve-3d;
-  }
-  .hero h1 {
-    font-size: clamp(2.5rem, 7vw, 5rem);
-    font-weight: 900;
-    letter-spacing: -2px;
-    background: linear-gradient(135deg, #a78bfa, #06b6d4, #f472b6);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 18px;
-    animation: shimmer 6s ease infinite;
-    text-shadow: 0 0 60px rgba(124,58,237,0.4);
-  }
-  @keyframes shimmer {
-    0%,100% { background-position: 0% 50%; }
-    50%     { background-position: 100% 50%; }
-  }
-  .hero p {
-    font-size: 1.2rem;
-    color: var(--muted);
-    max-width: 620px;
-    margin: 0 auto;
-  }
-  .section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 20px;
-  }
-  .section h2 {
-    font-size: 2rem;
-    margin-bottom: 8px;
-    background: linear-gradient(135deg, #a78bfa, #06b6d4);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .section .sub { color: var(--muted); margin-bottom: 28px; }
-  .grid, .shark-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
-  }
-  .card, .shark-card {
-    position: relative;
-    background: linear-gradient(160deg, rgba(20,24,52,0.95), rgba(13,16,36,0.95));
-    border: 1px solid rgba(124,58,237,0.25);
-    border-radius: 18px;
-    padding: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    transform-style: preserve-3d;
-    transition: transform 0.18s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    will-change: transform;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  }
-  .card::before, .shark-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 18px;
-    background: radial-gradient(400px circle at var(--mx,50%) var(--my,50%),
-                rgba(124,58,237,0.18), transparent 60%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
-  .card:hover::before, .shark-card:hover::before { opacity: 1; }
-  .card:hover, .shark-card:hover {
-    border-color: var(--accent2);
-    box-shadow: 0 24px 60px rgba(6,182,212,0.28), 0 0 0 1px rgba(6,182,212,0.3);
-  }
-  .card > *, .shark-card > * { transform: translateZ(40px); }
-  .card .tag {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 4px 12px;
-    border-radius: 999px;
-    background: rgba(124,58,237,0.2);
-    color: #a78bfa;
-    width: fit-content;
-  }
-  .card h3 { font-size: 1.4rem; font-weight: 700; }
-  .card p, .shark-card p {
-    color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    flex: 1;
-  }
-  .btn {
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 14px 20px;
-    border-radius: 10px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
-  }
-  .btn:hover { transform: translateY(-3px) scale(1.02); }
-  .btn-primary {
-    background: linear-gradient(135deg, #7c3aed, #06b6d4);
-    color: #fff;
-    box-shadow: 0 6px 24px rgba(124,58,237,0.45);
-  }
-  .btn-shark {
-    background: linear-gradient(135deg, #0ea5e9, #1e40af);
-    color: #fff;
-    box-shadow: 0 6px 24px rgba(14,165,233,0.45);
-  }
-  .shark-section {
-    background: linear-gradient(135deg, rgba(14,165,233,0.12), rgba(30,64,175,0.12));
-    border: 1px solid rgba(14,165,233,0.2);
-    border-radius: 24px;
-    padding: 40px;
-    margin-top: 20px;
-  }
-  .shark-card {
-    background: rgba(13,16,36,0.85);
-    border: 1px solid rgba(14,165,233,0.3);
-    border-radius: 14px;
-    padding: 24px;
-    gap: 12px;
-  }
-  .shark-card h3 { font-size: 1.2rem; }
-  footer {
-    text-align: center;
-    padding: 40px 20px;
-    color: var(--muted);
-    font-size: 0.85rem;
-    border-top: 1px solid rgba(124,58,237,0.2);
-    margin-top: 40px;
-  }
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2,0.8,0.2,1);
-  }
-  .reveal.in { opacity: 1; transform: translateY(0); }
-  @media (max-width: 600px) {
-    .section { padding: 24px 16px; }
-    .shark-section { padding: 24px 16px; }
-    .card > *, .shark-card > * { transform: none; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GET CREATIVE NOW — Premium Tools & Digital Products</title>
+  <meta name="description" content="Premium digital tools, lifetime ownership, and the privacy you deserve.">
+  <meta property="og:title" content="GET CREATIVE NOW — Premium Tools & Digital Products">
+  <meta property="og:description" content="Lifetime ownership. Pay once, keep forever.">
+  <meta property="og:url" content="https://get-creative-now.vercel.app">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #05060f;
+      --card: #0d1024;
+      --accent: #7c3aed;
+      --accent2: #06b6d4;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      perspective: 1400px;
+    }
+    .aurora {
+      position: fixed;
+      inset: -20%;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(124,58,237,0.35), transparent 45%),
+        radial-gradient(circle at 80% 20%, rgba(6,182,212,0.30), transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(236,72,153,0.25), transparent 45%);
+      filter: blur(60px);
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+    @keyframes drift {
+      0%   { transform: translate3d(-3%, -2%, 0) scale(1); }
+      50%  { transform: translate3d(3%, 2%, 0) scale(1.08); }
+      100% { transform: translate3d(-2%, 3%, 0) scale(1.04); }
+    }
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 100px 20px 50px;
+      transform-style: preserve-3d;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 7vw, 4.8rem);
+      font-weight: 900;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, #a78bfa, #06b6d4, #f472b6);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+      animation: shimmer 6s ease infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 20px;
+    }
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--accent2);
+    }
+    .trust-badge {
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #a78bfa, #06b6d4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section .sub { color: var(--muted); margin-bottom: 28px; }
+    .grid, .shark-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .card, .shark-card {
+      position: relative;
+      background: linear-gradient(160deg, rgba(20,24,52,0.95), rgba(13,16,36,0.95));
+      border: 1px solid rgba(124,58,237,0.25);
+      border-radius: 18px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transform-style: preserve-3d;
+      transition: transform 0.18s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .card:hover, .shark-card:hover {
+      border-color: var(--accent2);
+      box-shadow: 0 24px 60px rgba(6,182,212,0.28);
+    }
+    .card .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(124,58,237,0.2);
+      color: #a78bfa;
+      width: fit-content;
+    }
+    .card h3, .shark-card h3 { font-size: 1.3rem; font-weight: 700; }
+    .card p, .shark-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .btn {
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 14px 20px;
+      border-radius: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-3px) scale(1.02); }
+    .btn-primary {
+      background: linear-gradient(135deg, #7c3aed, #06b6d4);
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(124,58,237,0.45);
+    }
+    .btn-shark {
+      background: linear-gradient(135deg, #0ea5e9, #1e40af);
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(14,165,233,0.45);
+    }
+    .shark-section {
+      background: linear-gradient(135deg, rgba(14,165,233,0.12), rgba(30,64,175,0.12));
+      border: 1px solid rgba(14,165,233,0.2);
+      border-radius: 24px;
+      padding: 40px;
+      margin-top: 20px;
+    }
+    .yt-box {
+      background: rgba(13,16,36,0.9);
+      border: 1px solid rgba(124,58,237,0.35);
+      border-radius: 24px;
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .youtube-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 860px;
+      margin: 20px auto 24px;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      box-shadow: 0 10px 40px rgba(124,58,237,0.25);
+    }
+    .youtube-wrap iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+    }
+    .yt-cta {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-sub {
+      background: #ef4444;
+      color: #fff;
+    }
+    footer {
+      text-align: center;
+      padding: 50px 20px 40px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(124,58,237,0.2);
+      margin-top: 50px;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2,0.8,0.2,1);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    @media (max-width: 600px) {
+      .section, .shark-section { padding: 24px 16px; }
+      .card > *, .shark-card > * { transform: none; }
+    }
+  
+    .channel-identity-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 860px;
+      margin: 0 auto 16px;
+      padding: 12px 18px;
+      background: rgba(20, 24, 52, 0.7);
+      border: 1px solid rgba(124, 58, 237, 0.35);
+      border-radius: 14px;
+      gap: 12px;
+    }
+    .channel-avatar-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed, #06b6d4);
+      color: #fff;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+      flex-shrink: 0;
+    }
+    .channel-meta {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      flex: 1;
+    }
+    .channel-name-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .channel-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .verified-badge {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(6, 182, 212, 0.2);
+      color: #06b6d4;
+      font-weight: 600;
+    }
+    .channel-handle {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .btn-channel-pill {
+      background: #ef4444;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: transform 0.2s ease, background 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-channel-pill:hover {
+      background: #dc2626;
+      transform: translateY(-2px);
+    }
+
+  </style>
 </head>
 <body>
 
   <div class="aurora"></div>
 
-  <div class="hero">
+  <header class="hero">
     <h1>GET CREATIVE NOW</h1>
     <p>Premium digital tools, lifetime ownership, and the privacy you deserve — all in one place.</p>
-  </div>
+    <div class="trust-badges">
+      <span class="trust-badge">⚡ Instant Lifetime Access</span>
+      <span class="trust-badge">🔒 Secure Gumroad Checkout</span>
+      <span class="trust-badge">♾️ Zero Subscriptions</span>
+    </div>
+  </header>
 
-  <div class="section reveal">
+  <!-- PRODUCT SECTION -->
+  <main class="section reveal">
+
+    <!-- VIP ALL-ACCESS PASS -->
+    <section class="vip-banner" style="margin: 3rem auto 2.5rem; max-width: 1050px; padding: 2.2rem 2rem; background: radial-gradient(circle at top left, rgba(255,215,0,0.14), rgba(15,23,42,0.92)); border: 1px solid rgba(255,215,0,0.35); border-radius: 20px; text-align: center; backdrop-filter: blur(14px); box-shadow: 0 12px 35px rgba(0,0,0,0.4);">
+        <span style="background: rgba(255,215,0,0.18); color: #ffd700; font-size: 0.8rem; font-weight: 800; letter-spacing: 1.5px; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; border: 1px solid rgba(255,215,0,0.3);">Enterprise All-Access Pass</span>
+        <h2 style="font-size: 2.1rem; font-weight: 800; margin: 1rem 0 0.5rem 0; color: #ffffff; letter-spacing: -0.5px;">Unlock the Entire 50-Tool Business Engine</h2>
+        <p style="color: #cbd5e1; max-width: 680px; margin: 0 auto 1.8rem auto; font-size: 1.05rem; line-height: 1.6;">Instant, continuous access to all financial tools, local automation apps, CRM pipelines, and intelligence dashboards with zero locked tiers.</p>
+        <a href="https://donarock.gumroad.com/subscribe" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(90deg, #ffd700, #f59e0b); color: #0b0f19; font-weight: 800; font-size: 1.05rem; padding: 0.95rem 2.4rem; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 20px rgba(245,158,11,0.35); transition: transform 0.2s ease;">
+            ⚡ Join VIP Membership — Instant Access
+        </a>
+    </section>
+
     <h2>🛍️ Premium Digital Products</h2>
     <p class="sub">Lifetime ownership. Pay once, keep forever.</p>
     <div class="grid">
@@ -211,95 +327,117 @@
         <span class="tag">Command Center</span>
         <h3>SuperNova Command Center</h3>
         <p>Your all-in-one command hub for productivity, automation, and creative control.</p>
-        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/lhqrd" target="_blank">Get Lifetime Access</a>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/lhqrd" target="_blank" rel="noopener">Get Lifetime Access</a>
       </div>
       <div class="card">
         <span class="tag">Tool Suite</span>
         <h3>JOHNSTOOLS Suite</h3>
         <p>A powerful collection of tools designed to streamline your workflow and boost output.</p>
-        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/racltk" target="_blank">Get Lifetime Access</a>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/racltk" target="_blank" rel="noopener">Get Lifetime Access</a>
       </div>
       <div class="card">
         <span class="tag">Bundle</span>
         <h3>10-Tool Bundle</h3>
         <p>Ten essential creative tools bundled together for maximum value and efficiency.</p>
-        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/rdljid" target="_blank">Get Lifetime Access</a>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/rdljid" target="_blank" rel="noopener">Get Lifetime Access</a>
       </div>
       <div class="card">
         <span class="tag">Exclusive</span>
         <h3>Direct Line to Source</h3>
         <p>Unlock direct access to the source — premium insights and resources, straight to you.</p>
-        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/jomhn" target="_blank">Get Lifetime Access</a>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/jomhn" target="_blank" rel="noopener">Get Lifetime Access</a>
       </div>
       <div class="card">
         <span class="tag">Pet Care</span>
         <h3>Premium Pet Food Topper</h3>
         <p>Give your furry friend the nutrition they deserve with this premium food topper.</p>
-        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/ympord" target="_blank">Get Lifetime Access</a>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/ympord" target="_blank" rel="noopener">Get Lifetime Access</a>
       </div>
     </div>
-  </div>
+  </main>
 
-  <div class="section reveal">
+  <!-- YOUTUBE SECTION (PROPERLY UN-NESTED) -->
+  <section class="section reveal">
+    <div class="yt-box">
+      <h2>🎬 JohnD — Watch & Learn</h2>
+      <p class="sub">Tutorials, walkthroughs, and creative workflows — straight from the creator.</p>
+      
+      <div class="channel-identity-bar">
+        <div class="channel-avatar-badge">JD</div>
+        <div class="channel-meta">
+          <div class="channel-name-row">
+            <span class="channel-title">JohnD</span>
+            <span class="verified-badge">✓ Official Channel</span>
+          </div>
+          <span class="channel-handle">@JohnD-f8d</span>
+        </div>
+        <a class="btn-channel-pill" href="https://www.youtube.com/@JohnD-f8d?sub_confirmation=1" target="_blank" rel="noopener">▶ Subscribe</a>
+      </div>
+
+      <div class="youtube-wrap">
+        <iframe 
+          src="https://www.youtube-nocookie.com/embed/XVSWiEuhnug" 
+          title="JohnD - GET CREATIVE NOW" 
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="yt-cta">
+        <a class="btn btn-sub" href="https://www.youtube.com/@JohnD-f8d?sub_confirmation=1" target="_blank" rel="noopener">🔔 Subscribe to JohnD</a>
+        <a class="btn btn-primary" href="https://www.youtube.com/@JohnD-f8d" target="_blank" rel="noopener">Visit Channel</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SURFSHARK SECTION -->
+  <section class="section reveal">
     <div class="shark-section">
-      <h2>🦈 Surfshark — Privacy & Security</h2>
+      <h2>🦈 Surfshark® — Privacy & Security</h2>
       <p class="sub">Protect your devices with industry-leading VPN, antivirus, and ad blocking.</p>
       <div class="shark-grid">
         <div class="shark-card">
-          <h3>Surfshark VPN</h3>
+          <h3>Surfshark® VPN</h3>
           <p>Fast, secure, and unlimited VPN for all your devices. Browse privately anywhere.</p>
-          <a class="btn btn-shark" href="https://get.surfshark.net/aff_c?offer_id=926&aff_id=43730" target="_blank">Get Surfshark VPN</a>
+          <a class="btn btn-shark" href="https://get.surfshark.net/aff_c?offer_id=926&aff_id=43730" target="_blank" rel="noopener">Get Surfshark® VPN</a>
         </div>
         <div class="shark-card">
-          <h3>Surfshark Antivirus</h3>
+          <h3>Surfshark® Antivirus</h3>
           <p>Real-time protection against malware, viruses, and online threats.</p>
-          <a class="btn btn-shark" href="https://get.surfshark.net/aff_c?offer_id=934&aff_id=43730" target="_blank">Get Antivirus</a>
+          <a class="btn btn-shark" href="https://get.surfshark.net/aff_c?offer_id=934&aff_id=43730" target="_blank" rel="noopener">Get Antivirus</a>
         </div>
         <div class="shark-card">
-          <h3>Surfshark Adblock</h3>
+          <h3>Surfshark® Adblock</h3>
           <p>Block ads, trackers, and pop-ups for a cleaner, faster browsing experience.</p>
-          <a class="btn btn-shark" href="https://get.surfshark.net/aff_c?offer_id=1498&aff_id=43730" target="_blank">Get Adblock</a>
+          <a class="btn btn-shark" href="https://get.surfshark.net/aff_c?offer_id=1498&aff_id=43730" target="_blank" rel="noopener">Get Adblock</a>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <footer>
     <p>© 2026 GET CREATIVE NOW — ALL RIGHTS RESERVED — GIANNI DONATONE, WASAGA BEACH, ONTARIO</p>
   </footer>
 
-<script>
-  document.querySelectorAll('.card, .shark-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const r = card.getBoundingClientRect();
-      const x = e.clientX - r.left;
-      const y = e.clientY - r.top;
-      const rx = ((y / r.height) - 0.5) * -14;
-      const ry = ((x / r.width) - 0.5) * 14;
-      card.style.setProperty('--mx', x + 'px');
-      card.style.setProperty('--my', y + 'px');
-      card.style.transform =
-        `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px) scale(1.02)`;
+  <script>
+    document.querySelectorAll('.card, .shark-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        const rx = ((y / r.height) - 0.5) * -12;
+        const ry = ((x / r.width) - 0.5) * 12;
+        card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
     });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
 
-  const hero = document.querySelector('.hero');
-  window.addEventListener('mousemove', e => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 16;
-    const y = (e.clientY / window.innerHeight - 0.5) * 16;
-    hero.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-  });
-
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (en.isIntersecting) en.target.classList.add('in');
-    });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
-
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) en.target.classList.add('in');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
 </body>
 </html>
