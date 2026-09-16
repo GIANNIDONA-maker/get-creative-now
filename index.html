@@ -3,473 +3,441 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GET-CREATIVE-NOW | Autonomous Business Engine & Elite Vault</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <title>GET CREATIVE NOW — Premium Tools & Digital Products</title>
+  <meta name="description" content="Premium digital tools, lifetime ownership, and the privacy you deserve.">
+  <meta property="og:title" content="GET CREATIVE NOW — Premium Tools & Digital Products">
+  <meta property="og:description" content="Lifetime ownership. Pay once, keep forever.">
+  <meta property="og:url" content="https://get-creative-now.vercel.app">
+  <meta name="twitter:card" content="summary_large_image">
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg-primary: #05060a;
-      --bg-card: rgba(15, 18, 30, 0.75);
-      --border-glass: rgba(255, 255, 255, 0.08);
-      --gold-gradient: linear-gradient(135deg, #f7d070 0%, #d4af37 50%, #996515 100%);
-      --cyan-accent: #00f0ff;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
+      --bg: #05060f;
+      --card: #0d1024;
+      --accent: #7c3aed;
+      --accent2: #06b6d4;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      background-color: var(--bg-primary);
-      color: var(--text-main);
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
       overflow-x: hidden;
-      line-height: 1.5;
+      perspective: 1400px;
     }
-
-    .vip-topbar {
-      background: linear-gradient(90deg, #120e03, #2a1f05, #120e03);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-      padding: 12px 20px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #ffd700;
-      font-weight: 500;
+    .aurora {
+      position: fixed;
+      inset: -20%;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(124,58,237,0.35), transparent 45%),
+        radial-gradient(circle at 80% 20%, rgba(6,182,212,0.30), transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(236,72,153,0.25), transparent 45%);
+      filter: blur(60px);
+      animation: drift 18s ease-in-out infinite alternate;
     }
-    .vip-topbar a {
-      color: #fff;
-      font-weight: 700;
-      text-decoration: underline;
-      margin-left: 10px;
+    @keyframes drift {
+      0%   { transform: translate3d(-3%, -2%, 0) scale(1); }
+      50%  { transform: translate3d(3%, 2%, 0) scale(1.08); }
+      100% { transform: translate3d(-2%, 3%, 0) scale(1.04); }
     }
-
-    .hero-section {
+    .hero {
       position: relative;
-      padding: 90px 24px 60px 24px;
       text-align: center;
-      max-width: 1000px;
-      margin: 0 auto;
+      padding: 100px 20px 50px;
+      transform-style: preserve-3d;
     }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 20px;
-      background: rgba(212, 175, 55, 0.08);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      border-radius: 999px;
-      font-size: 0.78rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #ffd700;
-      font-weight: 600;
-      margin-bottom: 24px;
-    }
-    .hero-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-    .hero-title span {
-      background: var(--gold-gradient);
+    .hero h1 {
+      font-size: clamp(2.4rem, 7vw, 4.8rem);
+      font-weight: 900;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, #a78bfa, #06b6d4, #f472b6);
+      background-size: 200% 200%;
       -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+      animation: shimmer 6s ease infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 20px;
+    }
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--accent2);
+    }
+    .trust-badge {
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #a78bfa, #06b6d4);
+      -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .hero-subtitle {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      max-width: 760px;
-      margin: 0 auto 36px auto;
-      font-weight: 300;
-      line-height: 1.6;
-    }
-    .hero-cta-group {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-    .btn-gold {
-      padding: 16px 36px;
-      border-radius: 12px;
-      background: var(--gold-gradient);
-      color: #000;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-      transition: all 0.3s ease;
-    }
-    .btn-glass {
-      padding: 16px 32px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-glass);
-      color: #fff;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-    }
-
-    .luxury-vault-section {
-      max-width: 1360px;
-      margin: 0 auto;
-      padding: 40px 24px 120px 24px;
-    }
-    .vault-grid {
+    .section .sub { color: var(--muted); margin-bottom: 28px; }
+    .grid, .shark-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
     }
-    .vault-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-glass);
-      border-radius: 20px;
-      padding: 32px 28px;
+    .card, .shark-card {
+      position: relative;
+      background: linear-gradient(160deg, rgba(20,24,52,0.95), rgba(13,16,36,0.95));
+      border: 1px solid rgba(124,58,237,0.25);
+      border-radius: 18px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      backdrop-filter: blur(16px);
-      transition: all 0.3s ease;
+      gap: 14px;
+      transform-style: preserve-3d;
+      transition: transform 0.18s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
-    .vault-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(212, 175, 55, 0.4);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.15);
+    .card:hover, .shark-card:hover {
+      border-color: var(--accent2);
+      box-shadow: 0 24px 60px rgba(6,182,212,0.28);
     }
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-    .tier-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #d4af37;
-      background: rgba(212, 175, 55, 0.1);
-      padding: 4px 12px;
-      border-radius: 6px;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-    }
-    .card-sku {
-      font-family: monospace;
+    .card .tag {
+      display: inline-block;
       font-size: 0.75rem;
-      color: #64748b;
-    }
-    .card-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.3rem;
       font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 12px;
-      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(124,58,237,0.2);
+      color: #a78bfa;
+      width: fit-content;
     }
-    .card-desc {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin-bottom: 22px;
+    .card h3, .shark-card h3 { font-size: 1.3rem; font-weight: 700; }
+    .card p, .shark-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      flex: 1;
     }
-    .card-perks {
-      list-style: none;
-      margin-bottom: 26px;
+    .btn {
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 14px 20px;
+      border-radius: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
     }
-    .card-perks li {
+    .btn:hover { transform: translateY(-3px) scale(1.02); }
+    .btn-primary {
+      background: linear-gradient(135deg, #7c3aed, #06b6d4);
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(124,58,237,0.45);
+    }
+    .btn-shark {
+      background: linear-gradient(135deg, #0ea5e9, #1e40af);
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(14,165,233,0.45);
+    }
+    .shark-section {
+      background: linear-gradient(135deg, rgba(14,165,233,0.12), rgba(30,64,175,0.12));
+      border: 1px solid rgba(14,165,233,0.2);
+      border-radius: 24px;
+      padding: 40px;
+      margin-top: 20px;
+    }
+    .yt-box {
+      background: rgba(13,16,36,0.9);
+      border: 1px solid rgba(124,58,237,0.35);
+      border-radius: 24px;
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .youtube-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 860px;
+      margin: 20px auto 24px;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      box-shadow: 0 10px 40px rgba(124,58,237,0.25);
+    }
+    .youtube-wrap iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+    }
+    .yt-cta {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-sub {
+      background: #ef4444;
+      color: #fff;
+    }
+    footer {
+      text-align: center;
+      padding: 50px 20px 40px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(124,58,237,0.2);
+      margin-top: 50px;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2,0.8,0.2,1);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    @media (max-width: 600px) {
+      .section, .shark-section { padding: 24px 16px; }
+      .card > *, .shark-card > * { transform: none; }
+    }
+  
+    .channel-identity-bar {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.85rem;
-      color: #cbd5e1;
-      margin-bottom: 8px;
+      justify-content: space-between;
+      max-width: 860px;
+      margin: 0 auto 16px;
+      padding: 12px 18px;
+      background: rgba(20, 24, 52, 0.7);
+      border: 1px solid rgba(124, 58, 237, 0.35);
+      border-radius: 14px;
+      gap: 12px;
     }
-    .card-perks li::before {
-      content: "✔";
-      color: #d4af37;
-    }
-    .cta-buy-btn {
+    .channel-avatar-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed, #06b6d4);
+      color: #fff;
+      font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 14px 20px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #1c2237 0%, #111524 100%);
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      color: #f8fafc;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.25s ease;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+      flex-shrink: 0;
     }
-    .cta-buy-btn:hover {
-      background: var(--gold-gradient);
-      color: #000;
+    .channel-meta {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      flex: 1;
+    }
+    .channel-name-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .channel-title {
+      font-size: 1.05rem;
       font-weight: 700;
-      border-color: #d4af37;
+      color: #fff;
     }
-
-    .card-direct {
-      border-color: rgba(0, 240, 255, 0.25);
+    .verified-badge {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(6, 182, 212, 0.2);
+      color: #06b6d4;
+      font-weight: 600;
     }
-    .card-direct .tier-label {
-      color: var(--cyan-accent);
-      background: rgba(0, 240, 255, 0.08);
-      border-color: rgba(0, 240, 255, 0.25);
+    .channel-handle {
+      font-size: 0.8rem;
+      color: var(--muted);
     }
-
-    footer {
-      border-top: 1px solid var(--border-glass);
-      padding: 40px 24px;
-      text-align: center;
+    .btn-channel-pill {
+      background: #ef4444;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
       font-size: 0.85rem;
-      color: #64748b;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: transform 0.2s ease, background 0.2s ease;
+      white-space: nowrap;
     }
+    .btn-channel-pill:hover {
+      background: #dc2626;
+      transform: translateY(-2px);
+    }
+
   </style>
 </head>
 <body>
 
-  <aside class="vip-topbar">
-    <span>★ ENTERPRISE ACCESS PASS: Unlock all 50 autonomous business tools with one recurring membership.</span>
-    <a href="https://donarock.gumroad.com/subscribe" target="_blank" rel="noopener noreferrer">Activate VIP Pass &rarr;</a>
-  </aside>
+  <div class="aurora"></div>
 
-  <header class="hero-section">
-    <div class="hero-badge">Curated Institutional Vault</div>
-    <h1 class="hero-title">Elite Automation &amp; <span>Global Systems</span></h1>
-    <p class="hero-subtitle">
-      Direct institutional acquisition pipeline for advanced operational engines, bio-performance architectures, and vetted commerce funnels. Powered by Digistore24 checkout settlement.
-    </p>
-    <div class="hero-cta-group">
-      <a href="#vault" class="btn-gold">Explore The Collection &darr;</a>
-      <a href="https://donarock.gumroad.com/subscribe" target="_blank" rel="noopener noreferrer" class="btn-glass">VIP All-Access Pass</a>
+  <header class="hero">
+    <h1>GET CREATIVE NOW</h1>
+    <p>Premium digital tools, lifetime ownership, and the privacy you deserve — all in one place.</p>
+    <div class="trust-badges">
+      <span class="trust-badge">⚡ Instant Lifetime Access</span>
+      <span class="trust-badge">🔒 Secure Gumroad Checkout</span>
+      <span class="trust-badge">♾️ Zero Subscriptions</span>
     </div>
   </header>
 
-  <main class="luxury-vault-section" id="vault">
-    <div class="vault-grid">
+  <!-- PRODUCT SECTION -->
+  <main class="section reveal">
 
-      <article class="vault-card">
-        <div>
-          <div class="card-top">
-            <span class="tier-label">Enterprise Access</span>
-            <span class="card-sku">DS24 #88793</span>
-          </div>
-          <h2 class="card-title">Institutional Wealth System</h2>
-          <p class="card-desc">Framework engineered for rapid client acquisition and strategic revenue scale.</p>
-          <ul class="card-perks">
-            <li>Direct Master Provisioning</li>
-            <li>Instant Token Activation</li>
-          </ul>
-        </div>
-        <a href="https://www.digistore24.com/redir/88793/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Access Offer &rarr;</a>
-      </article>
+    <!-- VIP ALL-ACCESS PASS -->
+    <section class="vip-banner" style="margin: 3rem auto 2.5rem; max-width: 1050px; padding: 2.2rem 2rem; background: radial-gradient(circle at top left, rgba(255,215,0,0.14), rgba(15,23,42,0.92)); border: 1px solid rgba(255,215,0,0.35); border-radius: 20px; text-align: center; backdrop-filter: blur(14px); box-shadow: 0 12px 35px rgba(0,0,0,0.4);">
+        <span style="background: rgba(255,215,0,0.18); color: #ffd700; font-size: 0.8rem; font-weight: 800; letter-spacing: 1.5px; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; border: 1px solid rgba(255,215,0,0.3);">Enterprise All-Access Pass</span>
+        <h2 style="font-size: 2.1rem; font-weight: 800; margin: 1rem 0 0.5rem 0; color: #ffffff; letter-spacing: -0.5px;">Unlock the Entire 50-Tool Business Engine</h2>
+        <p style="color: #cbd5e1; max-width: 680px; margin: 0 auto 1.8rem auto; font-size: 1.05rem; line-height: 1.6;">Instant, continuous access to all financial tools, local automation apps, CRM pipelines, and intelligence dashboards with zero locked tiers.</p>
+        <a href="https://donarock.gumroad.com/subscribe" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(90deg, #ffd700, #f59e0b); color: #0b0f19; font-weight: 800; font-size: 1.05rem; padding: 0.95rem 2.4rem; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 20px rgba(245,158,11,0.35); transition: transform 0.2s ease;">
+            ⚡ Join VIP Membership — Instant Access
+        </a>
+    </section>
 
-      <article class="vault-card">
-        <div>
-          <div class="card-top">
-            <span class="tier-label">Growth Core</span>
-            <span class="card-sku">DS24 #557533</span>
-          </div>
-          <h2 class="card-title">Commercial Execution Suite</h2>
-          <p class="card-desc">Autonomous engine for operational workflows, automation, and revenue scaling.</p>
-          <ul class="card-perks">
-            <li>Enterprise Blueprint Pack</li>
-            <li>Immediate Digital Access</li>
-          </ul>
-        </div>
-        <a href="https://www.digistore24.com/redir/557533/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Access Offer &rarr;</a>
-      </article>
-
-      <article class="vault-card">
-        <div>
-          <div class="card-top">
-            <span class="tier-label">Bio-Performance</span>
-            <span class="card-sku">WELLFIT #AFF</span>
-          </div>
-          <h2 class="card-title">28-Day Military Workout Protocol</h2>
-          <p class="card-desc">Tactical physical conditioning program structured for focus, resilience, and transformation.</p>
-          <ul class="card-perks">
-            <li>28-Day Tactical Regimen</li>
-            <li>Complete Nutritional Blueprint</li>
-          </ul>
-        </div>
-        <a href="https://www.wellfiteats.com/28-day-military-workout-plan#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Secure Protocol &rarr;</a>
-      </article>
-
-      <article class="vault-card card-direct">
-        <div>
-          <div class="card-top">
-            <span class="tier-label">Express Checkout</span>
-            <span class="card-sku">DS24 #672537</span>
-          </div>
-          <h2 class="card-title">Direct Velocity Portal 672</h2>
-          <p class="card-desc">Direct 1-click cart clearance bypassing intermediate funnels straight to order confirmation.</p>
-          <ul class="card-perks">
-            <li>Encrypted 1-Click Order</li>
-            <li>Instant Verified Activation</li>
-          </ul>
-        </div>
-        <a href="https://www.checkout-ds24.com/redir/672537/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Instant Checkout &rarr;</a>
-      </article>
-
-      <article class="vault-card card-direct">
-        <div>
-          <div class="card-top">
-            <span class="tier-label">Express Checkout</span>
-            <span class="card-sku">DS24 #620947</span>
-          </div>
-          <h2 class="card-title">Automated Scale Engine 620</h2>
-          <p class="card-desc">Zero-delay procurement pipeline for immediate deployment with full partner clearance.</p>
-          <ul class="card-perks">
-            <li>Direct Merchant Settlement</li>
-            <li>Lifetime Software Rights</li>
-          </ul>
-        </div>
-        <a href="https://www.checkout-ds24.com/redir/620947/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Instant Checkout &rarr;</a>
-      </article>
-
-      <article class="vault-card">
-        <div>
-          <div class="card-top">
-            <span class="tier-label">Cognitive Bio-Tech</span>
-            <span class="card-sku">ABN #HD-BRAIN</span>
-          </div>
-          <h2 class="card-title">Brain AMP: Neural Activation</h2>
-          <p class="card-desc">Advanced bio-nutritional formula engineered for high-performance neural clarity and focus.</p>
-          <ul class="card-perks">
-            <li>Advanced Bionutritionals Stack</li>
-            <li>Physician-Formulated Integrity</li>
-          </ul>
-        </div>
-        <a href="https://www.advancedbionutritionals.com/DS24/BrainAMP/Brain-Just-Switched-On/HD.htm#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Explore Neural Stack &rarr;</a>
-      </article>
-
-      <article class="vault-card">
-        <div>
-          <div class="card-top">
-            <span class="tier-label">Edge Funnel</span>
-            <span class="card-sku">PAGES.DEV #4D8</span>
-          </div>
-          <h2 class="card-title">High-Conversion Matrix 4D8</h2>
-          <p class="card-desc">Edge-optimized conversion lander built on global infrastructure for sub-second checkout speed.</p>
-          <ul class="card-perks">
-            <li>Low Latency Edge Architecture</li>
-            <li>Turnkey Conversion Assets</li>
-          </ul>
-        </div>
-        <a href="http://sales-page-4d8.pages.dev#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Open Direct Page &rarr;</a>
-      </article>
-
-      <article class="vault-card">
-        <div>
-          <div class="card-top">
-            <span class="tier-label">Masterclass</span>
-            <span class="card-sku">H-BOOS #9WAYS</span>
-          </div>
-          <h2 class="card-title">9 Ways to Your Online Business</h2>
-          <p class="card-desc">High-value roadmap detailing 9 battle-tested formulas to build and scale autonomous revenue models.</p>
-          <ul class="card-perks">
-            <li>Step-by-Step Tactical Framework</li>
-            <li>Scalable Asset Strategy</li>
-          </ul>
-        </div>
-        <a href="http://heikoboos.com/9-ways-to-your-online-business#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Access Masterclass &rarr;</a>
-      </article>
-
-      <article class="vault-card">
-        <div>
-          <div class="card-top">
-            <span class="tier-label">Medical Reference</span>
-            <span class="card-sku">HOME-DOC #BOOK</span>
-          </div>
-          <h2 class="card-title">The Home Doctor: Practical Medicine</h2>
-          <p class="card-desc">The ultimate offline household medical guide for self-reliance and emergency preparedness.</p>
-          <ul class="card-perks">
-            <li>Doctor-Authored Field Procedures</li>
-            <li>Complete Household Reference</li>
-          </ul>
-        </div>
-        <a href="https://homedoctorbook.com/book/#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Order Physician Guide &rarr;</a>
-      </article>
-
-      <article class="vault-card card-direct">
-        <div>
-          <div class="card-top">
-            <span class="tier-label">Express Checkout</span>
-            <span class="card-sku">DS24 #601972</span>
-          </div>
-          <h2 class="card-title">Direct Merchant Engine 601</h2>
-          <p class="card-desc">High-speed checkout settlement skipping intermediary funnels for instantaneous acquisition.</p>
-          <ul class="card-perks">
-            <li>Fast-Track Order Execution</li>
-            <li>Multi-Currency SSL Settlement</li>
-          </ul>
-        </div>
-        <a href="https://www.checkout-ds24.com/redir/601972/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Instant Checkout &rarr;</a>
-      </article>
-
-      <article class="vault-card">
-        <div>
-          <div class="card-top">
-            <span class="tier-label">Food Autonomy</span>
-            <span class="card-sku">SURVIVAL #FOODS</span>
-          </div>
-          <h2 class="card-title">The Lost Superfoods Registry</h2>
-          <p class="card-desc">Comprehensive shelf-stable preservation methods and survival sustenance techniques.</p>
-          <ul class="card-perks">
-            <li>Zero Refrigeration Blueprints</li>
-            <li>Long-Term Stockpiling Protocol</li>
-          </ul>
-        </div>
-        <a href="https://ultimatesurvivalfoods.com/book/#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Secure Master Manual &rarr;</a>
-      </article>
-
-      <article class="vault-card card-direct">
-        <div>
-          <div class="card-top">
-            <span class="tier-label">Express Checkout</span>
-            <span class="card-sku">DS24 #633268</span>
-          </div>
-          <h2 class="card-title">Direct Commerce Terminal 633</h2>
-          <p class="card-desc">Instantaneous digital access with end-to-end payment encryption directly through Digistore24.</p>
-          <ul class="card-perks">
-            <li>Encrypted Cart Check</li>
-            <li>Priority Automated License</li>
-          </ul>
-        </div>
-        <a href="https://www.checkout-ds24.com/redir/633268/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Instant Checkout &rarr;</a>
-      </article>
-
-      <article class="vault-card card-direct">
-        <div>
-          <div class="card-top">
-            <span class="tier-label">Express Checkout</span>
-            <span class="card-sku">DS24 #672992</span>
-          </div>
-          <h2 class="card-title">Executive Pipeline Terminal 672</h2>
-          <p class="card-desc">Frictionless transaction gateway for immediate digital onboarding and software deployment.</p>
-          <ul class="card-perks">
-            <li>Immediate Terminal Clearance</li>
-            <li>Lifetime Asset Rights</li>
-          </ul>
-        </div>
-        <a href="https://www.checkout-ds24.com/redir/672992/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Instant Checkout &rarr;</a>
-      </article>
-
+    <h2>🛍️ Premium Digital Products</h2>
+    <p class="sub">Lifetime ownership. Pay once, keep forever.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="tag">Command Center</span>
+        <h3>SuperNova Command Center</h3>
+        <p>Your all-in-one command hub for productivity, automation, and creative control.</p>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/lhqrd" target="_blank" rel="noopener">Get Lifetime Access</a>
+      </div>
+      <div class="card">
+        <span class="tag">Tool Suite</span>
+        <h3>JOHNSTOOLS Suite</h3>
+        <p>A powerful collection of tools designed to streamline your workflow and boost output.</p>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/racltk" target="_blank" rel="noopener">Get Lifetime Access</a>
+      </div>
+      <div class="card">
+        <span class="tag">Bundle</span>
+        <h3>10-Tool Bundle</h3>
+        <p>Ten essential creative tools bundled together for maximum value and efficiency.</p>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/rdljid" target="_blank" rel="noopener">Get Lifetime Access</a>
+      </div>
+      <div class="card">
+        <span class="tag">Exclusive</span>
+        <h3>Direct Line to Source</h3>
+        <p>Unlock direct access to the source — premium insights and resources, straight to you.</p>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/jomhn" target="_blank" rel="noopener">Get Lifetime Access</a>
+      </div>
+      <div class="card">
+        <span class="tag">Pet Care</span>
+        <h3>Premium Pet Food Topper</h3>
+        <p>Give your furry friend the nutrition they deserve with this premium food topper.</p>
+        <a class="btn btn-primary" href="https://donarock.gumroad.com/l/ympord" target="_blank" rel="noopener">Get Lifetime Access</a>
+      </div>
     </div>
   </main>
 
+  <!-- YOUTUBE SECTION (PROPERLY UN-NESTED) -->
+  <section class="section reveal">
+    <div class="yt-box">
+      <h2>🎬 JohnD — Watch & Learn</h2>
+      <p class="sub">Tutorials, walkthroughs, and creative workflows — straight from the creator.</p>
+      
+      <div class="channel-identity-bar">
+        <div class="channel-avatar-badge">JD</div>
+        <div class="channel-meta">
+          <div class="channel-name-row">
+            <span class="channel-title">JohnD</span>
+            <span class="verified-badge">✓ Official Channel</span>
+          </div>
+          <span class="channel-handle">@JohnD-f8d</span>
+        </div>
+        <a class="btn-channel-pill" href="https://www.youtube.com/@JohnD-f8d?sub_confirmation=1" target="_blank" rel="noopener">▶ Subscribe</a>
+      </div>
+
+      <div class="youtube-wrap">
+        <iframe 
+          src="https://www.youtube-nocookie.com/embed/XVSWiEuhnug" 
+          title="JohnD - GET CREATIVE NOW" 
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="yt-cta">
+        <a class="btn btn-sub" href="https://www.youtube.com/@JohnD-f8d?sub_confirmation=1" target="_blank" rel="noopener">🔔 Subscribe to JohnD</a>
+        <a class="btn btn-primary" href="https://www.youtube.com/@JohnD-f8d" target="_blank" rel="noopener">Visit Channel</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SURFSHARK SECTION -->
+  <section class="section reveal">
+    <div class="shark-section">
+      <h2>🦈 Surfshark® — Privacy & Security</h2>
+      <p class="sub">Protect your devices with industry-leading VPN, antivirus, and ad blocking.</p>
+      <div class="shark-grid">
+        <div class="shark-card">
+          <h3>Surfshark® VPN</h3>
+          <p>Fast, secure, and unlimited VPN for all your devices. Browse privately anywhere.</p>
+          <a class="btn btn-shark" href="https://get.surfshark.net/aff_c?offer_id=926&aff_id=43730" target="_blank" rel="noopener">Get Surfshark® VPN</a>
+        </div>
+        <div class="shark-card">
+          <h3>Surfshark® Antivirus</h3>
+          <p>Real-time protection against malware, viruses, and online threats.</p>
+          <a class="btn btn-shark" href="https://get.surfshark.net/aff_c?offer_id=934&aff_id=43730" target="_blank" rel="noopener">Get Antivirus</a>
+        </div>
+        <div class="shark-card">
+          <h3>Surfshark® Adblock</h3>
+          <p>Block ads, trackers, and pop-ups for a cleaner, faster browsing experience.</p>
+          <a class="btn btn-shark" href="https://get.surfshark.net/aff_c?offer_id=1498&aff_id=43730" target="_blank" rel="noopener">Get Adblock</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>&copy; 2026 GET-CREATIVE-NOW. All rights reserved. Verified Partner ID: GIANNIDONA</p>
+    <p>© 2026 GET CREATIVE NOW — ALL RIGHTS RESERVED — GIANNI DONATONE, WASAGA BEACH, ONTARIO</p>
   </footer>
 
+  <script>
+    document.querySelectorAll('.card, .shark-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        const rx = ((y / r.height) - 0.5) * -12;
+        const ry = ((x / r.width) - 0.5) * 12;
+        card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) en.target.classList.add('in');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
 </body>
 </html>
