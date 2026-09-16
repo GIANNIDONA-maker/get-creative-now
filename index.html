@@ -10,10 +10,9 @@
   <style>
     :root {
       --bg-primary: #05060a;
-      --bg-card: rgba(15, 18, 30, 0.7);
+      --bg-card: rgba(15, 18, 30, 0.75);
       --border-glass: rgba(255, 255, 255, 0.08);
       --gold-gradient: linear-gradient(135deg, #f7d070 0%, #d4af37 50%, #996515 100%);
-      --gold-glow: rgba(212, 175, 55, 0.25);
       --cyan-accent: #00f0ff;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
@@ -28,7 +27,6 @@
       line-height: 1.5;
     }
 
-    /* VIP Top Marquee Banner */
     .vip-topbar {
       background: linear-gradient(90deg, #120e03, #2a1f05, #120e03);
       border-bottom: 1px solid rgba(212, 175, 55, 0.3);
@@ -37,18 +35,14 @@
       font-size: 0.9rem;
       color: #ffd700;
       font-weight: 500;
-      letter-spacing: 0.5px;
     }
     .vip-topbar a {
       color: #fff;
       font-weight: 700;
       text-decoration: underline;
       margin-left: 10px;
-      transition: color 0.2s;
     }
-    .vip-topbar a:hover { color: #ffd700; }
 
-    /* Hero Section */
     .hero-section {
       position: relative;
       padding: 90px 24px 60px 24px;
@@ -56,22 +50,9 @@
       max-width: 1000px;
       margin: 0 auto;
     }
-    .ambient-glow {
-      position: absolute;
-      top: -100px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 750px;
-      height: 450px;
-      background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
-      filter: blur(90px);
-      pointer-events: none;
-      z-index: 0;
-    }
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       padding: 7px 20px;
       background: rgba(212, 175, 55, 0.08);
       border: 1px solid rgba(212, 175, 55, 0.35);
@@ -82,15 +63,14 @@
       color: #ffd700;
       font-weight: 600;
       margin-bottom: 24px;
-      box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
     }
     .hero-title {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      font-size: clamp(2.4rem, 5vw, 4rem);
       font-weight: 800;
       letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 24px;
+      line-height: 1.15;
+      margin-bottom: 20px;
     }
     .hero-title span {
       background: var(--gold-gradient);
@@ -98,7 +78,7 @@
       -webkit-text-fill-color: transparent;
     }
     .hero-subtitle {
-      font-size: 1.18rem;
+      font-size: 1.15rem;
       color: var(--text-muted);
       max-width: 760px;
       margin: 0 auto 36px auto;
@@ -122,10 +102,6 @@
       box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
       transition: all 0.3s ease;
     }
-    .btn-gold:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
-    }
     .btn-glass {
       padding: 16px 32px;
       border-radius: 12px;
@@ -138,12 +114,7 @@
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
     }
-    .btn-glass:hover {
-      border-color: rgba(255, 255, 255, 0.3);
-      background: rgba(255, 255, 255, 0.08);
-    }
 
-    /* Luxury Vault Grid */
     .luxury-vault-section {
       max-width: 1360px;
       margin: 0 auto;
@@ -151,11 +122,10 @@
     }
     .vault-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: 28px;
     }
     .vault-card {
-      position: relative;
       background: var(--bg-card);
       border: 1px solid var(--border-glass);
       border-radius: 20px;
@@ -164,8 +134,7 @@
       flex-direction: column;
       justify-content: space-between;
       backdrop-filter: blur(16px);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
     }
     .vault-card:hover {
       transform: translateY(-6px);
@@ -176,12 +145,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     .tier-label {
       font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 1.8px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       color: #d4af37;
       background: rgba(212, 175, 55, 0.1);
@@ -196,7 +165,7 @@
     }
     .card-title {
       font-family: 'Syne', sans-serif;
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 700;
       line-height: 1.3;
       margin-bottom: 12px;
@@ -210,13 +179,12 @@
     }
     .card-perks {
       list-style: none;
-      padding: 0;
-      margin: 0 0 28px 0;
+      margin-bottom: 26px;
     }
     .card-perks li {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       font-size: 0.85rem;
       color: #cbd5e1;
       margin-bottom: 8px;
@@ -224,7 +192,6 @@
     .card-perks li::before {
       content: "✔";
       color: #d4af37;
-      font-size: 0.8rem;
     }
     .cta-buy-btn {
       display: flex;
@@ -240,7 +207,6 @@
       font-size: 0.9rem;
       font-weight: 600;
       text-decoration: none;
-      letter-spacing: 0.6px;
       transition: all 0.25s ease;
     }
     .cta-buy-btn:hover {
@@ -248,16 +214,10 @@
       color: #000;
       font-weight: 700;
       border-color: #d4af37;
-      box-shadow: 0 0 22px rgba(212, 175, 55, 0.45);
     }
 
-    /* Cyan Highlight for Direct Instant-Cart Checkouts */
     .card-direct {
       border-color: rgba(0, 240, 255, 0.25);
-    }
-    .card-direct:hover {
-      border-color: var(--cyan-accent);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 240, 255, 0.2);
     }
     .card-direct .tier-label {
       color: var(--cyan-accent);
@@ -265,7 +225,6 @@
       border-color: rgba(0, 240, 255, 0.25);
     }
 
-    /* Footer */
     footer {
       border-top: 1px solid var(--border-glass);
       padding: 40px 24px;
@@ -273,24 +232,20 @@
       font-size: 0.85rem;
       color: #64748b;
     }
-    footer a { color: #94a3b8; text-decoration: none; }
   </style>
 </head>
 <body>
 
-  <!-- Top VIP Pass Marquee -->
-  <aside class="vip-topbar" aria-label="VIP All-Access Announcement">
+  <aside class="vip-topbar">
     <span>★ ENTERPRISE ACCESS PASS: Unlock all 50 autonomous business tools with one recurring membership.</span>
     <a href="https://donarock.gumroad.com/subscribe" target="_blank" rel="noopener noreferrer">Activate VIP Pass &rarr;</a>
   </aside>
 
-  <!-- Hero Header -->
   <header class="hero-section">
-    <div class="ambient-glow"></div>
     <div class="hero-badge">Curated Institutional Vault</div>
     <h1 class="hero-title">Elite Automation &amp; <span>Global Systems</span></h1>
     <p class="hero-subtitle">
-      Direct institutional acquisition pipeline for advanced operational engines, bio-performance architectures, and vetted commerce funnels. Powered by Digistore24 high-speed checkout settlement.
+      Direct institutional acquisition pipeline for advanced operational engines, bio-performance architectures, and vetted commerce funnels. Powered by Digistore24 checkout settlement.
     </p>
     <div class="hero-cta-group">
       <a href="#vault" class="btn-gold">Explore The Collection &darr;</a>
@@ -298,11 +253,9 @@
     </div>
   </header>
 
-  <!-- 13 Active Digistore24 / Partner Products -->
   <main class="luxury-vault-section" id="vault">
     <div class="vault-grid">
 
-      <!-- 1 -->
       <article class="vault-card">
         <div>
           <div class="card-top">
@@ -310,18 +263,15 @@
             <span class="card-sku">DS24 #88793</span>
           </div>
           <h2 class="card-title">Institutional Wealth System</h2>
-          <p class="card-desc">System framework engineered for rapid acquisition and high-velocity revenue scale.</p>
+          <p class="card-desc">Framework engineered for rapid client acquisition and strategic revenue scale.</p>
           <ul class="card-perks">
             <li>Direct Master Provisioning</li>
             <li>Instant Token Activation</li>
           </ul>
         </div>
-        <a href="https://www.digistore24.com/redir/88793/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">
-          Access Offer &rarr;
-        </a>
+        <a href="https://www.digistore24.com/redir/88793/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Access Offer &rarr;</a>
       </article>
 
-      <!-- 2 -->
       <article class="vault-card">
         <div>
           <div class="card-top">
@@ -329,18 +279,15 @@
             <span class="card-sku">DS24 #557533</span>
           </div>
           <h2 class="card-title">Commercial Execution Suite</h2>
-          <p class="card-desc">Autonomous operational engine for client onboarding, automation, and revenue workflows.</p>
+          <p class="card-desc">Autonomous engine for operational workflows, automation, and revenue scaling.</p>
           <ul class="card-perks">
             <li>Enterprise Blueprint Pack</li>
             <li>Immediate Digital Access</li>
           </ul>
         </div>
-        <a href="https://www.digistore24.com/redir/557533/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">
-          Access Offer &rarr;
-        </a>
+        <a href="https://www.digistore24.com/redir/557533/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Access Offer &rarr;</a>
       </article>
 
-      <!-- 3 -->
       <article class="vault-card">
         <div>
           <div class="card-top">
@@ -348,18 +295,15 @@
             <span class="card-sku">WELLFIT #AFF</span>
           </div>
           <h2 class="card-title">28-Day Military Workout Protocol</h2>
-          <p class="card-desc">Tactical physical conditioning program structured for focus, resilience, and body recomposition.</p>
+          <p class="card-desc">Tactical physical conditioning program structured for focus, resilience, and transformation.</p>
           <ul class="card-perks">
             <li>28-Day Tactical Regimen</li>
             <li>Complete Nutritional Blueprint</li>
           </ul>
         </div>
-        <a href="https://www.wellfiteats.com/28-day-military-workout-plan#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">
-          Secure Protocol &rarr;
-        </a>
+        <a href="https://www.wellfiteats.com/28-day-military-workout-plan#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Secure Protocol &rarr;</a>
       </article>
 
-      <!-- 4 -->
       <article class="vault-card card-direct">
         <div>
           <div class="card-top">
@@ -367,18 +311,15 @@
             <span class="card-sku">DS24 #672537</span>
           </div>
           <h2 class="card-title">Direct Velocity Portal 672</h2>
-          <p class="card-desc">Direct 1-click cart clearance bypassing sales latency straight into order confirmation.</p>
+          <p class="card-desc">Direct 1-click cart clearance bypassing intermediate funnels straight to order confirmation.</p>
           <ul class="card-perks">
             <li>Encrypted 1-Click Order</li>
             <li>Instant Verified Activation</li>
           </ul>
         </div>
-        <a href="https://www.checkout-ds24.com/redir/672537/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">
-          Instant Checkout &rarr;
-        </a>
+        <a href="https://www.checkout-ds24.com/redir/672537/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Instant Checkout &rarr;</a>
       </article>
 
-      <!-- 5 -->
       <article class="vault-card card-direct">
         <div>
           <div class="card-top">
@@ -392,12 +333,9 @@
             <li>Lifetime Software Rights</li>
           </ul>
         </div>
-        <a href="https://www.checkout-ds24.com/redir/620947/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">
-          Instant Checkout &rarr;
-        </a>
+        <a href="https://www.checkout-ds24.com/redir/620947/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Instant Checkout &rarr;</a>
       </article>
 
-      <!-- 6 -->
       <article class="vault-card">
         <div>
           <div class="card-top">
@@ -411,12 +349,9 @@
             <li>Physician-Formulated Integrity</li>
           </ul>
         </div>
-        <a href="https://www.advancedbionutritionals.com/DS24/BrainAMP/Brain-Just-Switched-On/HD.htm#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">
-          Explore Neural Stack &rarr;
-        </a>
+        <a href="https://www.advancedbionutritionals.com/DS24/BrainAMP/Brain-Just-Switched-On/HD.htm#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Explore Neural Stack &rarr;</a>
       </article>
 
-      <!-- 7 -->
       <article class="vault-card">
         <div>
           <div class="card-top">
@@ -430,12 +365,9 @@
             <li>Turnkey Conversion Assets</li>
           </ul>
         </div>
-        <a href="http://sales-page-4d8.pages.dev#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">
-          Open Direct Page &rarr;
-        </a>
+        <a href="http://sales-page-4d8.pages.dev#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Open Direct Page &rarr;</a>
       </article>
 
-      <!-- 8 -->
       <article class="vault-card">
         <div>
           <div class="card-top">
@@ -449,12 +381,9 @@
             <li>Scalable Asset Strategy</li>
           </ul>
         </div>
-        <a href="http://heikoboos.com/9-ways-to-your-online-business#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">
-          Access Masterclass &rarr;
-        </a>
+        <a href="http://heikoboos.com/9-ways-to-your-online-business#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Access Masterclass &rarr;</a>
       </article>
 
-      <!-- 9 -->
       <article class="vault-card">
         <div>
           <div class="card-top">
@@ -462,18 +391,15 @@
             <span class="card-sku">HOME-DOC #BOOK</span>
           </div>
           <h2 class="card-title">The Home Doctor: Practical Medicine</h2>
-          <p class="card-desc">The ultimate offline household medical guide for self-reliance and unexpected health emergencies.</p>
+          <p class="card-desc">The ultimate offline household medical guide for self-reliance and emergency preparedness.</p>
           <ul class="card-perks">
             <li>Doctor-Authored Field Procedures</li>
             <li>Complete Household Reference</li>
           </ul>
         </div>
-        <a href="https://homedoctorbook.com/book/#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">
-          Order Physician Guide &rarr;
-        </a>
+        <a href="https://homedoctorbook.com/book/#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Order Physician Guide &rarr;</a>
       </article>
 
-      <!-- 10 -->
       <article class="vault-card card-direct">
         <div>
           <div class="card-top">
@@ -487,12 +413,9 @@
             <li>Multi-Currency SSL Settlement</li>
           </ul>
         </div>
-        <a href="https://www.checkout-ds24.com/redir/601972/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">
-          Instant Checkout &rarr;
-        </a>
+        <a href="https://www.checkout-ds24.com/redir/601972/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Instant Checkout &rarr;</a>
       </article>
 
-      <!-- 11 -->
       <article class="vault-card">
         <div>
           <div class="card-top">
@@ -500,18 +423,15 @@
             <span class="card-sku">SURVIVAL #FOODS</span>
           </div>
           <h2 class="card-title">The Lost Superfoods Registry</h2>
-          <p class="card-desc">Comprehensive shelf-stable preservation methods and forgotten survival sustenance techniques.</p>
+          <p class="card-desc">Comprehensive shelf-stable preservation methods and survival sustenance techniques.</p>
           <ul class="card-perks">
             <li>Zero Refrigeration Blueprints</li>
             <li>Long-Term Stockpiling Protocol</li>
           </ul>
         </div>
-        <a href="https://ultimatesurvivalfoods.com/book/#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">
-          Secure Master Manual &rarr;
-        </a>
+        <a href="https://ultimatesurvivalfoods.com/book/#aff=GIANNIDONA" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Secure Master Manual &rarr;</a>
       </article>
 
-      <!-- 12 -->
       <article class="vault-card card-direct">
         <div>
           <div class="card-top">
@@ -525,12 +445,9 @@
             <li>Priority Automated License</li>
           </ul>
         </div>
-        <a href="https://www.checkout-ds24.com/redir/633268/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">
-          Instant Checkout &rarr;
-        </a>
+        <a href="https://www.checkout-ds24.com/redir/633268/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Instant Checkout &rarr;</a>
       </article>
 
-      <!-- 13 -->
       <article class="vault-card card-direct">
         <div>
           <div class="card-top">
@@ -544,9 +461,7 @@
             <li>Lifetime Asset Rights</li>
           </ul>
         </div>
-        <a href="https://www.checkout-ds24.com/redir/672992/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">
-          Instant Checkout &rarr;
-        </a>
+        <a href="https://www.checkout-ds24.com/redir/672992/GIANNIDONA/" target="_blank" rel="noopener noreferrer" class="cta-buy-btn">Instant Checkout &rarr;</a>
       </article>
 
     </div>
