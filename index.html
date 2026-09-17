@@ -291,6 +291,81 @@
       transform: translateY(-2px);
     }
 
+  
+    /* 3D GYROSCOPIC COIN BADGE */
+    .gyro-container {
+      perspective: 900px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 24px auto;
+      width: 100px;
+      height: 100px;
+    }
+
+    .gyro-coin {
+      width: 86px;
+      height: 86px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spinGyro 9s linear infinite;
+      cursor: pointer;
+      transition: filter 0.3s ease;
+    }
+
+    .gyro-coin:hover {
+      animation-duration: 4.5s;
+      filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.95)) drop-shadow(0 0 35px rgba(0, 240, 255, 0.8));
+    }
+
+    .gyro-ring-outer {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 215, 0, 0.85);
+      box-shadow: 0 0 18px rgba(255, 215, 0, 0.5), inset 0 0 15px rgba(255, 215, 0, 0.3);
+      transform-style: preserve-3d;
+      transform: rotateX(25deg);
+    }
+
+    .gyro-ring-inner {
+      position: absolute;
+      inset: 9px;
+      border-radius: 50%;
+      border: 2px solid rgba(0, 240, 255, 0.85);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.5), inset 0 0 10px rgba(0, 240, 255, 0.3);
+      transform: rotateY(45deg);
+    }
+
+    .gyro-core {
+      position: absolute;
+      inset: 22px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,215,0,0.95) 0%, rgba(255,160,0,0.7) 40%, rgba(10,12,20,0.95) 100%);
+      box-shadow: 0 0 24px rgba(255, 215, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0b0f19;
+      font-weight: 900;
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      backface-visibility: visible;
+    }
+
+    @keyframes spinGyro {
+      0% {
+        transform: rotateY(0deg) rotateX(16deg);
+      }
+      50% {
+        transform: rotateY(180deg) rotateX(-16deg);
+      }
+      100% {
+        transform: rotateY(360deg) rotateX(16deg);
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -298,7 +373,17 @@
   <div class="aurora"></div>
 
   <header class="hero">
-    <h1>GET CREATIVE NOW</h1>
+    
+      <!-- 3D GYROSCOPIC EMBLEM -->
+      <div class="gyro-container" title="Enterprise Core Emblem">
+        <div class="gyro-coin">
+          <div class="gyro-ring-outer"></div>
+          <div class="gyro-ring-inner"></div>
+          <div class="gyro-core">⚡</div>
+        </div>
+      </div>
+
+      <h1>GET CREATIVE NOW</h1>
     <p>Premium digital tools, lifetime ownership, and the privacy you deserve — all in one place.</p>
     <div class="trust-badges">
       <span class="trust-badge">⚡ Instant Lifetime Access</span>
